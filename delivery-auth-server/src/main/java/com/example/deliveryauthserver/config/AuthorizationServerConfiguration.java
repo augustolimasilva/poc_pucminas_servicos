@@ -69,14 +69,14 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.jdbc(dataSource)
-                .withClient(clientId)
+        clients.jdbc(dataSource);
+                /*.withClient(clientId)
                 .authorizedGrantTypes(authorizedGrantTypes)
                 .authorities(Authorities.names())
                 .resourceIds(resourceIds)
                 .scopes(scopes)
                 .secret(secret)
-                .accessTokenValiditySeconds(accessTokenValiditySeconds);
+                .accessTokenValiditySeconds(accessTokenValiditySeconds);*/
     }
 
     @Bean

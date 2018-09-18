@@ -71,7 +71,7 @@ public class UserDetailsService implements org.springframework.security.core.use
 		}else {
 			user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 			user.setActivated(true);
-			Authority userFunction = authorityRepository.findByName("ROLE_ADMIN");
+			Authority userFunction = authorityRepository.findByName("LOGISTA");
 			user.setAuthorities(new HashSet<Authority>(Arrays.asList(userFunction)));
 			
 			try {

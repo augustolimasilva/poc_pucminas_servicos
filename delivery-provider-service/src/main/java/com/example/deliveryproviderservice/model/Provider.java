@@ -1,15 +1,13 @@
 package com.example.deliveryproviderservice.model;
 
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
-import org.hibernate.validator.constraints.br.CNPJ;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
-import java.io.Serializable;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "provider")
@@ -19,7 +17,7 @@ public class Provider {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private int id;
 	
 	@NotEmpty(message="Preencha o campo nome")
 	private String nome;
@@ -37,28 +35,26 @@ public class Provider {
 	private String estado;
 	
 	@NotNull(message = "Preencha o campo cep")
-	private int cep;
+	private String cep;
 	
 	@NotEmpty(message = "Preencha o campo email")
-	@Email(message = "Preencha o campo com um e-mail válido")
 	private String email;
 	
 	@NotEmpty(message = "Preencha o campo contato")
 	private String contato;
 	
 	@NotEmpty(message = "Preencha o campo cnpj")
-	@CNPJ(message = "Preencha o campo com um cnpj válido")
+	//@CNPJ(message = "Preencha o campo com um cnpj válido")
 	private String cnpj;
 	
 	@NotNull(message = "Preencha o campo numero")
-	@Pattern(regexp="^\\([1-9]{2}\\)(?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$")
-	private int numero;
+	private String numero;
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -94,11 +90,11 @@ public class Provider {
 		this.bairro = bairro;
 	}
 
-	public int getCep() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCep(int cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 
@@ -134,11 +130,11 @@ public class Provider {
 		this.estado = estado;
 	}
 	
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 }
